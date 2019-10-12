@@ -5,7 +5,7 @@ info:
   license:
     name: MIT
 servers:
-  - url: https://attmigration-tst.azurewebsites.net
+  - url: https://attmigration-dev.azurewebsites.net
 paths:
   /api/orchestrators/attachmentmigrationorchestrator:
     post:
