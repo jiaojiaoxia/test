@@ -1,7 +1,7 @@
 openapi: "3.0.0"
 info:
   version: 1.0.0
-  title: attachmentmigration
+  title: attachmentmigration1
   license:
     name: MIT
 servers:
@@ -10,7 +10,7 @@ paths:
   /api/orchestrators/attachmentmigrationorchestrator:
     post:
       tags:
-        - s3
+        - s3att
       summary: S3migration
       operationId: s3migration
       responses:
