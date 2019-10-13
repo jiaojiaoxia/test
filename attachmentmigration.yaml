@@ -1,7 +1,7 @@
 openapi: "3.0.0"
 info:
   version: 1.0.0
-  title: attachmentmigration1
+  title: attachmentmigration2
   license:
     name: MIT
 servers:
@@ -16,16 +16,19 @@ paths:
       responses:
         '200':
           description: success
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'          
 components:
   securitySchemes:
-    apiKeyHeader:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-    apiKeyQuery:
-      type: apiKey
-      name: subscription-key
-      in: query
+    basicAuth:     # <-- arbitrary name for the security scheme
+      type: http
+      scheme: basic
+  responses:
+    UnauthorizedError:
+      description: Authentication information is missing or invalid
+      headers:
+        WWW_Authenticate:
+          schema:
+            type: string      
 security:
-  - apiKeyHeader: [ ]
-  - apiKeyQuery: [ ]
+- basicAuth: []  # <-- use the same name here
