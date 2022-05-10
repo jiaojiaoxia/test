@@ -1,0 +1,17 @@
+version: '3.3'
+   services:
+      database_1:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        container_name: mssql-server
+        restart: always
+        ports:
+          - "5550:1433"
+        volumes:
+            mssqlsalah:/var/opt/mssql
+        environment:
+           ACCEPT_EULA: 'Y'
+           MSSQL_SA_PASSWORD: hsZGlEE"{OH=3lFTLGQtBRr]y
+           MSSQL_PID: Express
+           MSSQL_COLLATION: SQL_Latin1_General_CP1_CS_AS
+   volumes:
+      mssqlsalah:
